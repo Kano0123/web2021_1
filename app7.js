@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
     res.send("Hello World!");
 });
 
-app.get("/public/kimatu01.html", (req, res) => {
+app.get("/food", (req, res) => {
     res.send("This is the food page!");
 });
 

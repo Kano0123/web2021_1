@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>選択</title>
+</head>
+<body>
+  <form id="myForm" action="/top">
+    <h2>日本人気食べ物ランキング</h2>
+    <p>日本の人気食べものの順に表が出されます。<br>
+    選択をした方のランキングが出るので、片方選択してください。</p>
+    <p>※一つのみ選択</p>
+
+    <input type="checkbox" name="desc" id="desc_child">
+    <label for="desc_child"><a href="japan02.html">子供</a></label>
+
+    <input type="checkbox" name="desc" id="desc_adult">
+    <label for="desc_adult"><a href="japan03.html">大人</a></label>
+
+    <input type="submit" value="送信">
+  </form>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      var descChildChecked = document.getElementById('desc_child').checked;
+      var descAdultChecked = document.getElementById('desc_adult').checked;
+
+      if (descChildChecked && !descAdultChecked) {
+        this.action = "japan02.html";
+      } else if (!descChildChecked && descAdultChecked) {
+        this.action = "japan03.html";
+      } else {
+        event.preventDefault(); // フォーム送信をキャンセルする
+        alert("一つだけチェックしてください。");
+      }
+    });
+  </script>
+</body>
+</html>
